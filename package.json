@@ -63,9 +63,11 @@
   "dependencies": {
     "antd": "^2.13.10",
     "core-js": "^2.0.0",
+    "fetch": "^1.1.0",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
-    "react-responsive": "^3.0.0"
+    "react-responsive": "^3.0.0",
+    "react-router": "^4.2.0"
   }
 }
