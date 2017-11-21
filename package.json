@@ -68,6 +68,6 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-responsive": "^3.0.0",
-    "react-router": "^4.2.0"
+    "react-router": "^2.6.0"
   }
 }
