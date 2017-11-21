@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import {Row,Col,Spin} from 'antd';
 import {Router, Route, Link, browserHistory} from 'react-router'
-import Tloader from 'react-touch-loader';
+import ReactPullToRefresh from 'react-pull-to-refresh'
 
 export default class MobileList extends Component {
   state = {
-    news:'',
-    count:5,
-    hasMore:0,
-    initializing:1,
-    refreshedAt:Date.now()
+    news:''
   }
   componentWillMount(){
     var myFetchOptions = {
@@ -17,33 +13,17 @@ export default class MobileList extends Component {
     }
     fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
   }
-  onLoadMore(resolve) {
-    setTimeout(()=>{
-      var count = this.state.count;
-      this.setState({
-        count:count+5
-      })
-      var myFetchOptions = {
+  
+  handleRefresh(resolve){
+    var myFetchOptions = {
         method: 'GET'
       }
-      fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.state.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
-
-      this.setState({
-        hasMore:count>0&&count<50
-      })
-      resolve()
-    },2e3)
-  }
-  componentDidMount(){
-    setTimeout(()=>{
-      this.setState({
-        hasMore:1,
-        initializing:2
-      })
-    },2e3)
+      fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=yule"+ "&count=20", myFetchOptions).then(response => response.json()).then(json => {
+        this.setState({news: json})
+        resolve()
+      });
   }
   render() {
-    const {hasMore,initializing,refreshedAt} = this.state;
     const sectionStyle = {
       margin:'10px auto 2px',
       width:'90%'
@@ -74,9 +54,10 @@ export default class MobileList extends Component {
       <div>
         <Row>
           <Col span={24}>
-            <Tloader className='main' onLoadMore={this.onLoadMore.bind(this)} hasMore={hasMore} initializing={initializing}>
-               {newList}
-            </Tloader>
+            <ReactPullToRefresh onRefresh={this.handleRefresh.bind(this)} style={{textAlign:'center'}}>
+                <span className='genericon genericon-next'></span>
+                <div>{newList}</div>
+            </ReactPullToRefresh>
           </Col>
         </Row>
       </div>

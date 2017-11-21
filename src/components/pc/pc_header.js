@@ -8,8 +8,7 @@ import {
 	Form,
 	Input,
 	Button,
-	CheckBox,
-  Modal
+    Modal
 } from 'antd';
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
@@ -89,7 +88,7 @@ class PCHeader extends React.Component{
             <Menu.Item key='logout' className='register' style={{color:'#fff',borderBottom:'none'}}>
                 <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
                 &nbsp;&nbsp;
-                <Link target="_blank">
+                <Link target="_blank" to={`/usercenter`}>
                   <Button type="dashed" htmlType="button">个人中心</Button>
                 </Link>
                 &nbsp;&nbsp;
@@ -125,9 +124,9 @@ class PCHeader extends React.Component{
                         <Menu.Item key="yule">
                              <Icon type="appstore" />娱乐
                         </Menu.Item>
-                        <Menu.Item key="tiyu">
+                        {/*<Menu.Item key="tiyu">
                              <Icon type="appstore" />体育
-                        </Menu.Item>
+                          </Menu.Item>*/}
                         <Menu.Item key="keji">
                              <Icon type="appstore" />科技
                         </Menu.Item>

@@ -47,6 +47,8 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "minimist": "^1.2.0",
     "mocha": "^3.0.0",
     "null-loader": "^0.1.1",
@@ -62,12 +64,15 @@
   },
   "dependencies": {
     "antd": "^2.13.10",
+    "axios": "^0.17.1",
     "core-js": "^2.0.0",
     "fetch": "^1.1.0",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
+    "react-pull-to-refresh": "^1.1.1",
     "react-responsive": "^3.0.0",
-    "react-router": "^2.6.0"
+    "react-router": "^2.6.0",
+    "react-touch-loader": "^1.1.2"
   }
 }

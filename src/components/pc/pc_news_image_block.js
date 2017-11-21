@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
-import {Card} from 'antd';
-import {Router, Route, Link, browserHistory} from 'react-router'
-
+import {Card,Spin } from 'antd';
+import {Link} from 'react-router'
+import axios from 'axios'
 
 export default class PCNewsImageBlock extends Component {
   state = {
@@ -12,7 +12,9 @@ export default class PCNewsImageBlock extends Component {
     const myFetchOptions = {
 			method: 'GET'
 		};
-		fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
+    // fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
+    
+    axios.get("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => this.setState({news: response.data}));
   }
   render() {
     const styleImage = {
@@ -41,7 +43,7 @@ export default class PCNewsImageBlock extends Component {
         </Link>
       </div>
     ))
-    : '没有加载到任何新闻';
+    : <Spin style={{margin:'0px auto'}} />;
 
     return (
       <div className="topNewsList">

@@ -16,6 +16,7 @@ const SubMenu = Menu.SubMenu;
 const TabPane = Tabs.TabPane;
 const MenuItemGroup = Menu.ItemGroup;
 import {Router, Route, Link, browserHistory} from 'react-router'
+import axios from 'axios'
 
 class MobileHeader extends React.Component{
     state = {
@@ -51,20 +52,28 @@ class MobileHeader extends React.Component{
         }
         const formData = this.props.form.getFieldsValue();
         // console.log(formData);
-          fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
-              + "&username="+formData.userName+"&password="+formData.password
-              +"&r_userName=" + formData.r_userName + "&r_password="
-              + formData.r_password + "&r_confirmPassword="
-              + formData.r_confirmPassword, myFetchOptions)
-              .then(response => response.json())
-              .then(json => {
-                this.setState({userNickName: json.NickUserName, userid: json.UserId});
-              });
-              if (this.state.action=="login") {
-                this.setState({hasLogined:true});
-              }
-              message.success("请求成功！");
-              this.setModalVisible(false);
+        //   fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+        //       + "&username="+formData.userName+"&password="+formData.password
+        //       +"&r_userName=" + formData.r_userName + "&r_password="
+        //       + formData.r_password + "&r_confirmPassword="
+        //       + formData.r_confirmPassword, myFetchOptions)
+        //       .then(response => response.json())
+        //       .then(json => {
+        //         this.setState({userNickName: json.NickUserName, userid: json.UserId});
+        //       });
+        axios.get("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+        + "&username="+formData.userName+"&password="+formData.password
+        +"&r_userName=" + formData.r_userName + "&r_password="
+        + formData.r_password + "&r_confirmPassword="
+        + formData.r_confirmPassword, myFetchOptions)
+        .then(response => {
+          this.setState({userNickName: response.data.NickUserName, userid: response.data.UserId});
+        });
+        if (this.state.action=="login") {
+        this.setState({hasLogined:true});
+        }
+        message.success("请求成功！");
+        this.setModalVisible(false);
     }
     callback(key) {
       if (key == 1) {
