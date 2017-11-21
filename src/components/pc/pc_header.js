@@ -31,6 +31,11 @@ class PCHeader extends React.Component{
             modalVisible:value
         })
     }
+    componentWillMount(){
+      if (localStorage.userid='') {
+        this.setState({hasLogined:true,userNickName:localStorage.userNickName,userid:localStorage.userid})
+      }
+    }
     handleClick(e){
         if(e.key == 'register') {
             this.setState({
@@ -60,34 +65,41 @@ class PCHeader extends React.Component{
               .then(json => {
                 this.setState({userNickName: json.NickUserName, userid: json.UserId});
               });
-              if (this.state.action=="login") {
-                this.setState({hasLogined:true});
-              }
-              message.success("请求成功！");
-              this.setModalVisible(false);
+        if (this.state.action=="login") {
+          this.setState({hasLogined:true});
+        }
+        message.success("请求成功！");
+        this.setModalVisible(false);
     }
     callback(key) {
-      if (key == 1) {
-        this.setState({action: 'login'});
-      } else if (key == 2) {
-        this.setState({action: 'register'});
-      }
+        if (key == 1) {
+          this.setState({action: 'login'});
+        } else if (key == 2) {
+          this.setState({action: 'register'});
+        }
+    }
+    logout(){
+      localStorage.userid= '';
+      localStorage.userNickName = '';
+      this.setState({hasLogined:false});
     }
     render(){
         let {getFieldDecorator} = this.props.form;
         const userShow = this.state.hasLogined?
             <Menu.Item key='logout' className='register' style={{color:'#fff',borderBottom:'none'}}>
-                <Link to='/'>
-                    <Button type='dashed' htmlType='button'>个人中心</Button>
+                <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
+                &nbsp;&nbsp;
+                <Link target="_blank">
+                  <Button type="dashed" htmlType="button">个人中心</Button>
                 </Link>
                 &nbsp;&nbsp;
-                <Button type='ghost' htmlType='button'>退出</Button>
+                <Button type='ghost' htmlType='button' onClick={this.logout.bind(this)}>退出</Button>
             </Menu.Item>:
             <Menu.Item key='register' className='register'>
                 <Icon type='appstore' />注册/登录
             </Menu.Item>
         return (
-           <header>
+           <header style={{paddingTop:10}}>
             <Row>
                 <Col span={2}></Col>
                 <Col span={4}>
