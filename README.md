@@ -2,6 +2,18 @@ React News App
 ---
 > 一个简洁的React新闻应用,兼容PC、移动端
 
+Usage
+---
+
+```
+git clone https://github.com/poetries/react-news-app.git
+
+# cd react-news-app && npm i
+npm install
+
+npm start
+```
+
 snapShot
 ---
 
