@@ -1,9 +1,9 @@
 import React,{ Component } from 'react';
-import PCHeader from './pc_header';
-import PCFooter from './pc_footer';
-import PCNewsImageBlock from './pc_news_image_block';
+import PCHeader from '../pc_header';
+import PCFooter from '../pc_footer';
+import PCNewsImageBlock from '../pc_news_image_block';
 import {Row, Col, BackTop} from 'antd';
-import CommonComments from './common_comments';
+import CommonComments from '../../common/comments';
 import axios from 'axios'
 
 class PCNewsDetails extends Component {

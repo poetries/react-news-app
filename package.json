@@ -65,7 +65,7 @@
   "dependencies": {
     "antd": "^2.13.10",
     "axios": "^0.17.1",
-    "core-js": "^2.0.0",
+    "core-js": "^2.5.1",
     "fetch": "^1.1.0",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",

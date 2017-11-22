@@ -1,4 +1,5 @@
 import React from 'react';
+import {Wrapper} from './style';
 import {Card,Spin} from 'antd';
 // import { Link} from 'react-router'
 import {Link} from 'react-router-dom';
@@ -27,13 +28,13 @@ export default class PCNewsBlock extends React.Component {
     )): <Spin style={{margin:'0px auto'}} />;
 
     return (
-      <div className='topNewsList'>
+      <Wrapper>
           <Card>
              <ul>
                  {newsList}
              </ul>
           </Card>
-      </div>
+      </Wrapper>
     )
   }
 }

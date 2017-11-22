@@ -1,4 +1,4 @@
-.logo {
+/* .logo {
     align-items: center;
     display: flex;
 }
@@ -11,11 +11,11 @@
 .logo span {
     font-size: 24px;
     padding-left: 5px;
-}
+} */
 
-.footer {
+/* .footer {
     text-align: center;
-}
+} */
 
 .register {
     float: right !important;

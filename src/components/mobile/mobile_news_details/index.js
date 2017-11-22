@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MobileHeader from './mobile_header';
-import MobileFooter from './mobile_footer';
+import MobileHeader from '../mobile_header';
+import MobileFooter from '../mobile_footer';
 import {Row, Col, BackTop} from 'antd';
-import CommonComments from '../pc/common_comments';
+import CommonComments from '../../common/comments';
 
 class MobileNewsDetails extends Component {
   state = {

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 // import {Router, Route,hashHistory} from 'react-router';
 import {Route,BrowserRouter as Router, Switch} from 'react-router-dom';
-import PCIndex from './components/pc/pc_index';
-import MobileIndex from './components/mobile/mobile_index';
+import PCIndex from './components/pc';
+import MobileIndex from './components/mobile';
 import PCNewsDetails from './components/pc/pc_news_details';
 import MobileNewsDetails from './components/mobile/mobile_news_details';
 import PCUserCenter from './components/pc/pc_usercenter';

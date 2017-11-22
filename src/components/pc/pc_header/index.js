@@ -1,4 +1,6 @@
 import React from 'react';
+import {Header,Span} from '../../common/Tags';
+import {A} from './style';
 import {Row, Col} from 'antd';
 import {
 	Menu,
@@ -99,14 +101,14 @@ class PCHeader extends React.Component{
                 <Icon type='appstore' />注册/登录
             </Menu.Item>
         return (
-           <header style={{paddingTop:10}}>
+           <Header style={{paddingTop:10}}>
             <Row>
                 <Col span={2}></Col>
                 <Col span={4}>
-                    <a href="/" className='logo'>
+                    <A href="/">
                         <img src="../images/logo.png" alt="logo"/>
-                        <span>ReactNews</span>
-                    </a>
+                        <Span>ReactNews</Span>
+                    </A>
                 </Col>
                 <Col span={16}>
                     <Menu mode="horizontal" selectedKeys={[this.state.current]} onClick={this.handleClick.bind(this)}>
@@ -172,7 +174,7 @@ class PCHeader extends React.Component{
                 </Col>
                 <Col span={2}></Col>
              </Row>
-           </header>
+           </Header>
         )
     }
 }

@@ -5,8 +5,8 @@ import {
   Tabs,
   Carousel
 } from 'antd';
-import PCNewsBlock from './pc_news_block';
-import PCNewsImageBlock from './pc_news_image_block';
+import PCNewsBlock from '../pc_news_block';
+import PCNewsImageBlock from '../pc_news_image_block';
 const TabPane = Tabs.TabPane;
 
 export default class PCNewsContainer extends Component {
@@ -23,8 +23,7 @@ export default class PCNewsContainer extends Component {
     return (
       <div>
         <Row>
-          <Col span={2}></Col>
-          <Col span={20} className='container'>
+          <Col span={20} className='container' offset={2}>
             <div className='leftContainer'>
               <div className='carousel'>
                   <Carousel {...params}>
@@ -45,9 +44,20 @@ export default class PCNewsContainer extends Component {
 							</TabPane>
             </Tabs>
             <div>
-							<PCNewsImageBlock count={20} type="guonei" width="100%" cartTitle="国内新闻" imageWidth="132px"  match={this.props.match} />
-							<PCNewsImageBlock count={40} type="yule" width="100%" cartTitle="娱乐新闻" imageWidth="132px"  match={this.props.match} />
 						</div>
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+
+        <Row>
+          <Col span={20}  offset={2}>
+            <PCNewsImageBlock count={20} type="guonei" width="100%" cartTitle="国内新闻" imageWidth="132px"  match={this.props.match} />
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <Row>
+          <Col span={20} offset={2}>
+							<PCNewsImageBlock count={40} type="yule" width="100%" cartTitle="娱乐新闻" imageWidth="132px"  match={this.props.match} />
           </Col>
           <Col span={2}></Col>
         </Row>
