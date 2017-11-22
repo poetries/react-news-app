@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
 import {Card,Spin } from 'antd';
-import {Link} from 'react-router'
+// import {Link} from 'react-router'
+import {Link} from 'react-router-dom';
 import axios from 'axios'
 
 export default class PCNewsImageBlock extends Component {
@@ -13,10 +14,11 @@ export default class PCNewsImageBlock extends Component {
 			method: 'GET'
 		};
     // fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
-    
+
     axios.get("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => this.setState({news: response.data}));
   }
   render() {
+    // alert(this.props.match) // '/'
     const styleImage = {
 			display: "block",
 			width: this.props.imageWidth,
@@ -32,7 +34,8 @@ export default class PCNewsImageBlock extends Component {
     const newsList = news.length
     ? news.map((newsItem, index) => (
       <div key={index} className="imageblock">
-        <Link to={`details/${newsItem.uniquekey}`} target="_blank">
+      {/*或者location.path === '/'*/}
+        <Link to={this.props.match === '/' ? `details/${newsItem.uniquekey}` : `${this.props.match&&this.props.match.substring(0,8)}/${newsItem.uniquekey}`} target="_blank">
           <div className="custom-image">
             <img alt="" style={styleImage} src={newsItem.thumbnail_pic_s}/>
           </div>

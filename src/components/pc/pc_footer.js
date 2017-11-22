@@ -11,7 +11,7 @@ export default class PCFooter extends Component{
                     &copy;&nbsp;&nbsp;2017 React News. All Rights Reseved
                 </Col>
                 <Col span={2}>
-                   
+
                 </Col>
              </Row>
            </header>

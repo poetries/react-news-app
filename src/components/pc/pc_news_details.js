@@ -10,7 +10,10 @@ class PCNewsDetails extends Component {
   state = {
     newsItem: ''
   }
+
+
   componentDidMount(){
+
     const myFetchOptions = {
 			method: 'GET'
     };
@@ -19,16 +22,16 @@ class PCNewsDetails extends Component {
 		// 	document.title = this.state.newsItem.title + " - React News | React 驱动的新闻平台";
     // })
 
-    axios.get("http://newsapi.gugujiankong.com/Handler.ashx?action=getnewsitem&uniquekey=" + this.props.params.uniquekey, myFetchOptions).then(response => {
+    axios.get("http://newsapi.gugujiankong.com/Handler.ashx?action=getnewsitem&uniquekey=" + this.props.match.params.uniquekey, myFetchOptions).then(response => {
       this.setState({newsItem: response.data});
 			document.title = this.state.newsItem.title + " - React News | React 驱动的新闻平台";
     })
-
   }
   createMarkup() {
 		return {__html: this.state.newsItem.pagecontent};
 	};
   render() {
+    // alert (this.props.match.url)
       return (
         <div>
           <PCHeader></PCHeader>
@@ -37,10 +40,10 @@ class PCNewsDetails extends Component {
             <Col span={14} className="container">
               <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
               <hr/>
-              <CommonComments uniquekey={this.props.params.uniquekey} />
+              <CommonComments uniquekey={this.props.match.params.uniquekey} />
             </Col>
             <Col span={6}>
-              <PCNewsImageBlock count={40} type="top" width="100%" cardTitle="相关新闻" imageWidth="150px"/>
+              <PCNewsImageBlock count={40} type="top" width="100%" cardTitle="相关新闻" imageWidth="150px" match={this.props.match.url}/>
             </Col>
             <Col span={2}></Col>
           </Row>

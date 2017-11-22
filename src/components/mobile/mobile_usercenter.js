@@ -17,7 +17,8 @@ import {
 } from 'antd';
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
-import {Router, Route, Link, browserHistory} from 'react-router'
+// import {Router, Route, Link, browserHistory} from 'react-router'
+import {Link} from 'react-router-dom';
 import MobileHeader from './mobile_header';
 import MobileFooter from './mobile_footer';
 export default class MobileUserCenter extends React.Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Row,Col,Spin} from 'antd';
-import {Router, Route, Link, browserHistory} from 'react-router'
+// import {Router, Route, Link, browserHistory} from 'react-router'
+import {Link} from 'react-router-dom';
 import ReactPullToRefresh from 'react-pull-to-refresh'
 
 export default class MobileList extends Component {
@@ -13,7 +14,7 @@ export default class MobileList extends Component {
     }
     fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
   }
-  
+
   handleRefresh(resolve){
     var myFetchOptions = {
         method: 'GET'

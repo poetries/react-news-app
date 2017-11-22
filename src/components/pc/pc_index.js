@@ -5,10 +5,11 @@ import PCNewsContainer from './pc_newscontainer';
 
 export default class PCIndex extends React.Component {
 	render() {
+    // console.log(this.props.match)
 		return (
 			<div>
 				<PCHeader />
-				<PCNewsContainer />
+				<PCNewsContainer match={this.props.match.url} />
 				<PCFooter />
 			</div>
 		);

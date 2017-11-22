@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card,Spin} from 'antd';
-import { Link} from 'react-router'
+// import { Link} from 'react-router'
+import {Link} from 'react-router-dom';
 import axios from 'axios'
 
 export default class PCNewsBlock extends React.Component {
@@ -18,6 +19,7 @@ export default class PCNewsBlock extends React.Component {
 
   }
   render() {
+    // console.log(this.state.news)
     const newsList = this.state.news.length ? this.state.news.map((item,index)=>(
       <li key={index}>
           <Link to={`details/${item.uniquekey}`} target='_blank'>{item.title}</Link>

@@ -17,7 +17,8 @@ import {
 } from 'antd';
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
-import {Router, Route, Link, browserHistory} from 'react-router'
+// import {Router, Route, Link, browserHistory} from 'react-router'
+import {Link} from 'react-router-dom';
 import PCHeader from './pc_header';
 import PCFooter from './pc_footer';
 export default class PCUserCenter extends React.Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Row,Col,Spin} from 'antd';
-import {Router, Route, Link, browserHistory} from 'react-router'
+// import {Router, Route, Link, browserHistory} from 'react-router'
+import {Link} from 'react-router-dom';
 import Tloader from 'react-touch-loader';
 
 export default class MobileList extends Component {
