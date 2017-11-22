@@ -4,6 +4,7 @@ import {Card,Spin } from 'antd';
 // import {Link} from 'react-router'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
+import PropTypes from 'prop-types';
 
 export default class PCNewsImageBlock extends Component {
   state = {
@@ -58,4 +59,10 @@ export default class PCNewsImageBlock extends Component {
     </div>
     )
   }
+}
+PCNewsImageBlock.PropTypes = {
+  count:PropTypes.number,
+  type:PropTypes.string,
+  cardTitle:PropTypes.string,
+  imageWidth:PropTypes.string.isRequired
 }
