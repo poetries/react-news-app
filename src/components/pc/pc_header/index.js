@@ -10,7 +10,7 @@ import {
 	Form,
 	Input,
 	Button,
-    Modal
+   Modal
 } from 'antd';
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
@@ -72,6 +72,7 @@ class PCHeader extends React.Component{
         }
         message.success("请求成功！");
         this.setModalVisible(false);
+        console.log(this.props.doLogin)
     }
     callback(key) {
         if (key == 1) {

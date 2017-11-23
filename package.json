@@ -71,10 +71,14 @@
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-pull-to-refresh": "^1.1.1",
+    "react-redux": "^5.0.6",
     "react-responsive": "^3.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-touch-loader": "^1.1.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^2.2.3"
   }
 }

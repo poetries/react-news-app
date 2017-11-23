@@ -1,5 +1,6 @@
 import React from 'react';
-import PCHeader from './pc_header';
+// import PCHeader from './pc_header';
+import PCHeader from '../../containers/header';
 import PCFooter from './pc_footer';
 import PCNewsContainer from './pc_newscontainer';
 

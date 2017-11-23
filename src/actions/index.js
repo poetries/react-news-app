@@ -1,5 +1,5 @@
 /**
- * 定义action creator
+ * 合并actions
  */
 
-import * as actionType from '../constant';
+export * from './doLogin';

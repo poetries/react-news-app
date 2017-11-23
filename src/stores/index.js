@@ -1,9 +1,10 @@
 import { applyMiddleware, createStore } from 'redux';
 import reducer from '../reducers';
 import logger from 'redux-logger';
+import reduxThunk from 'redux-thunk';
 
 // 创建store 用来存储状态
-export const store = createStore(
+export default createStore(
   reducer,
-  applyMiddleware(logger) //处理日志中间件
+  applyMiddleware(reduxThunk,logger) //处理日志中间件
 )
