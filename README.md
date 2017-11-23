@@ -1,4 +1,4 @@
-React News App
+React News App redux版本
 ---
 > 一个简洁的React新闻应用,兼容PC、移动端
 
